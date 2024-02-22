@@ -5,7 +5,12 @@ const app = express();
 
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://kunal8011:Upes2024@cluster0.7enskgz.mongodb.net/users_app")
+mongoose.connect("mongodb+srv://kunal8011:Upes2024@cluster0.7enskgz.mongodb.net/users_app").then(()=>{
+    console.log("Database connected successfully")
+}).catch(err=>{
+    console.log("Could not connect to database",err)
+    process.exit();
+})
 
 
 //Create
